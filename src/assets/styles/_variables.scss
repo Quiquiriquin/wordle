@@ -1,0 +1,174 @@
+$green-lvl-1: #66A060;
+$yellow-lvl-1: #CEB02C;
+$gray-lvl-1: #D3D6DA;
+$gray-lvl-2: #939B9F;
+$gray-lvl-3: #DADCE04D;
+$gray-lvl-4: #939B9F4D;
+$white: #FFF;
+$dark-lvl-1: #262B3C;
+$dark-lvl-2: #262B3C;
+$dark-lvl-3: #DADCE008;
+$dark-lvl-4: #565F7E;
+
+.light {
+    & .color {
+        &-green {
+            &-1 {
+                color: $green-lvl-1;
+            }
+        }
+        &-yellow {
+            &-1 {
+                color: $yellow-lvl-1;
+            }
+        }
+        &-gray {
+            &-1 {
+                color: $gray-lvl-1;
+            }
+            &-2 {
+                color: $gray-lvl-2;
+            }
+            &-3 {
+                color: $gray-lvl-3;
+            }
+        }
+    
+        &-dark {
+            &-1 {
+                color: $dark-lvl-1;
+            }
+            &-2 {
+                color: $dark-lvl-2;
+            }
+            &-3 {
+                color: $dark-lvl-3;
+            }
+            &-4 {
+                color: $dark-lvl-4;
+            }
+        }
+    }
+
+    & .bg {
+        &-green {
+            &-1 {
+                background: $green-lvl-1;
+            }
+        }
+        &-yellow {
+            &-1 {
+                background: $yellow-lvl-1;
+            }
+        }
+        &-gray {
+            &-1 {
+                background: $gray-lvl-1;
+            }
+            &-2 {
+                background: $gray-lvl-2;
+            }
+            &-3 {
+                background: $gray-lvl-3;
+            }
+        }
+    
+        &-dark {
+            &-1 {
+                background: $dark-lvl-1;
+            }
+            &-2 {
+                background: $dark-lvl-2;
+            }
+            &-3 {
+                background: $dark-lvl-3;
+            }
+            &-4 {
+                background: $dark-lvl-4;
+            }
+        }
+    }
+}
+.dark {
+    & .color {
+        &-green {
+            &-1 {
+                color: $green-lvl-1;
+            }
+        }
+        &-yellow {
+            &-1 {
+                color: $yellow-lvl-1;
+            }
+        }
+        &-gray {
+            &-1 {
+                color: $dark-lvl-1;
+            }
+            &-2 {
+                color: $dark-lvl-2;
+            }
+            &-3 {
+                color: $dark-lvl-3;
+            }
+            &-4 {
+                color: $dark-lvl-4;
+            }
+        }    
+        &-dark {
+            &-1 {
+                color: $dark-lvl-1;
+            }
+            &-2 {
+                color: $dark-lvl-2;
+            }
+            &-3 {
+                color: $dark-lvl-3;
+            }
+            &-4 {
+                color: $dark-lvl-4;
+            }
+        }
+    }
+
+    & .bg {
+        &-green {
+            &-1 {
+                background: $green-lvl-1;
+            }
+        }
+        &-yellow {
+            &-1 {
+                background: $yellow-lvl-1;
+            }
+        }
+        &-gray {
+            &-1 {
+                background: $dark-lvl-1;
+            }
+            &-2 {
+                background: $dark-lvl-2;
+            }
+            &-3 {
+                background: $dark-lvl-3;
+            }
+            &-4 {
+                background: $dark-lvl-4;
+            }
+        }    
+        &-dark {
+            &-1 {
+                background: $dark-lvl-1;
+            }
+            &-2 {
+                background: $dark-lvl-2;
+            }
+            &-3 {
+                background: $dark-lvl-3;
+            }
+            &-4 {
+                background: $dark-lvl-4;
+            }
+        }
+    }
+}

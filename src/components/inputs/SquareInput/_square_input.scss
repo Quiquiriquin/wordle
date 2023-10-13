@@ -1,0 +1,24 @@
+@import "../../../assets/styles/variables";
+
+.square-input {
+    height: 76px;
+    width: 76px;
+    font-size: 35px;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    background: rgba($color: $gray-lvl-2, $alpha: 0.3);
+    padding-bottom: 6px;
+
+    text-transform: capitalize;
+    
+    &:focus-visible,
+    &:focus {
+        outline: 2px solid $gray-lvl-4;
+        outline-offset: 2px;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+}
