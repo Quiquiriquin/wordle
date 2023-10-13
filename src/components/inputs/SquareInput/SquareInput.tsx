@@ -1,15 +1,5 @@
-import React, {
-  ChangeEvent,
-  ChangeEventHandler,
-  Dispatch,
-  SetStateAction,
-  forwardRef,
-  useContext,
-  useEffect,
-  useState,
-} from 'react'
+import React, { Dispatch, SetStateAction, forwardRef, useEffect, useState } from 'react'
 import './_square_input.scss'
-import { ThemeContext } from '../../../context/ThemeContext'
 import clsx from 'clsx'
 
 type SquareInputProps = {
@@ -19,16 +9,18 @@ type SquareInputProps = {
   position?: number
   moveNextInput?: (e: number) => void
   updateCheckList: Dispatch<SetStateAction<number[]>>
+  id: string
 }
 
 // eslint-disable-next-line react/display-name
 const SquareInput = forwardRef<HTMLInputElement, SquareInputProps>(
   (
-    { disabled = false, expectedLetter, word, moveNextInput, position = 0, updateCheckList },
+    { disabled = false, expectedLetter, word, moveNextInput, position = 0, updateCheckList, id },
     ref,
   ) => {
     // const { theme } = useContext(ThemeContext);
     const [value, setValue] = useState<string>('')
+    const [innerDisabled, setInnerDisabled] = useState<boolean>(false)
     const [validation, setValidation] = useState<string>('')
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -62,6 +54,7 @@ const SquareInput = forwardRef<HTMLInputElement, SquareInputProps>(
           setValidation('bg-yellow-1')
           updateCheckList(setInvalid)
         }
+        setInnerDisabled(true)
       } else {
         setValidation('')
         updateCheckList(setInvalid)
@@ -70,10 +63,11 @@ const SquareInput = forwardRef<HTMLInputElement, SquareInputProps>(
 
     return (
       <input
+        id={id}
         ref={ref}
         className={clsx('square-input', validation)}
         value={value}
-        disabled={disabled}
+        disabled={disabled || innerDisabled}
         onChange={handleChange}
       ></input>
     )
