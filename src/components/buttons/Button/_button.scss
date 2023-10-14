@@ -1,0 +1,28 @@
+@import '../../../assets/styles/variables';
+
+.button {
+    &.keyboard {
+        height: 51px;
+        width: 44px;
+        font-size: 18px;
+        text-align: center;
+        border-radius: 5px;
+        border: none;
+        background: rgba($color: $gray-lvl-2, $alpha: 0.3);
+        padding-bottom: 1px;
+        text-transform: capitalize;
+
+        &.extended {
+            width: 88px;
+            padding-bottom: 1px;
+            justify-content: center;
+            text-align: center;
+            display: flex;
+            align-items: center;
+        }
+
+        &:active {
+            background: $gray-lvl-5;
+        }
+    }
+}

@@ -11,7 +11,7 @@ const ThemeContext = createContext<ThemeProviderInterface>({})
 const { Provider, Consumer } = ThemeContext
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ThemeProvider = ({ children }: { children: ReactComponentElement<any> }) => {
-  const [theme, updateTheme] = useState<string>('light')
+  const [theme, updateTheme] = useState<string>('dark')
   return (
     <Provider
       value={{

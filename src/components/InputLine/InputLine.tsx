@@ -1,74 +1,55 @@
-import {
-  Dispatch,
-  SetStateAction,
-  createRef,
-  memo,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react'
+import React, { Dispatch, SetStateAction, useEffect } from 'react'
 import SquareInput from '../inputs/SquareInput/SquareInput'
 
 type InputLineProps = {
-  word: string
   row: number
-  activeLine: number
-  setActiveLine: Dispatch<SetStateAction<number>>
+  word: string
+  col: number
+  setActiveColumn: Dispatch<SetStateAction<number>>
+  evaluate: boolean
 }
 
-// eslint-disable-next-line react/display-name
-const InputLine = memo(
-  ({ activeLine, setActiveLine, row, word = '' }: InputLineProps) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const inputRefs = useRef<any>([])
-    const [checklist, setCheckList] = useState<number[]>([0, 0, 0, 0, 0])
-    const numberOfInputs = [0, 1, 2, 3, 4]
-    inputRefs.current = useMemo(
-      () => [0, 0, 0, 0, 0].map((ref, index) => (inputRefs.current[index] = createRef())),
-      [row],
-    )
-    const moveToTheNext = (index: number) => {
-      if (index < 4) {
-        document.getElementById(`input_${row}_${index + 1}`)?.focus()
-      }
-      if (index === 4) {
-        setActiveLine(row + 1)
-      }
+const InputLine = ({ row, word = '', col, evaluate }: InputLineProps) => {
+  const positions = [0, 1, 2, 3, 4]
+  useEffect(() => {
+    if (col > 4) {
+      console.log('Ya acabamos')
     }
-    const verify = (): boolean => checklist.reduce((prev, curr) => prev + curr, 0) === 5
-
-    useEffect(() => {
-      if (verify()) {
-        console.log('Ya esta bien la palabra')
-      }
-    }, [checklist])
-
-    useEffect(() => {
-      if (activeLine === row) {
-        document.getElementById(`input_${row}_0`)?.focus()
-      }
-    }, [activeLine])
-
-    return (
-      <div id={`row_${row}`} className='flex gap-4'>
-        {numberOfInputs.map((_, inputPosition) => (
-          <SquareInput
-            id={`input_${row}_${inputPosition}`}
-            updateCheckList={setCheckList}
-            moveNextInput={moveToTheNext}
-            ref={inputRefs.current[inputPosition]}
-            key={`${inputPosition}_${row}`}
-            disabled={activeLine !== row}
-            expectedLetter={word.charAt(inputPosition)}
-            word={word || ''}
-            position={inputPosition}
-          />
-        ))}
-      </div>
-    )
-  },
-  (prev, next) => prev.row !== next.row,
-)
+  }, [col])
+  return (
+    <div className='flex gap-4'>
+      <SquareInput
+        word={word}
+        evaluate={evaluate}
+        expectedLetter={word.charAt(0).toLowerCase()}
+        id={`input_${row}_${positions[0]}`}
+      />
+      <SquareInput
+        word={word}
+        evaluate={evaluate}
+        expectedLetter={word.charAt(1).toLowerCase()}
+        id={`input_${row}_${positions[1]}`}
+      />
+      <SquareInput
+        word={word}
+        evaluate={evaluate}
+        expectedLetter={word.charAt(2).toLowerCase()}
+        id={`input_${row}_${positions[2]}`}
+      />
+      <SquareInput
+        word={word}
+        evaluate={evaluate}
+        expectedLetter={word.charAt(3).toLowerCase()}
+        id={`input_${row}_${positions[3]}`}
+      />
+      <SquareInput
+        word={word}
+        evaluate={evaluate}
+        expectedLetter={word.charAt(4).toLowerCase()}
+        id={`input_${row}_${positions[4]}`}
+      />
+    </div>
+  )
+}
 
 export default InputLine

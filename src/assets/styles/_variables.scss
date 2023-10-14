@@ -4,14 +4,30 @@ $gray-lvl-1: #D3D6DA;
 $gray-lvl-2: #939B9F;
 $gray-lvl-3: #DADCE04D;
 $gray-lvl-4: #939B9F4D;
+$gray-lvl-5: #818181;
 $white: #FFF;
+$white-lvl-2: #F3F3F3;
 $dark-lvl-1: #262B3C;
 $dark-lvl-2: #262B3C;
 $dark-lvl-3: #DADCE008;
 $dark-lvl-4: #565F7E;
 
+* {
+    body.dark {
+        background: $dark-lvl-2;
+    }
+}
+
 .light {
     & .color {
+        &-black {
+            color: #000;
+        }
+        &-white {
+            &-2 {
+                color: $white-lvl-2;
+            }
+        }
         &-green {
             &-1 {
                 color: $green-lvl-1;
@@ -32,6 +48,9 @@ $dark-lvl-4: #565F7E;
             &-3 {
                 color: $gray-lvl-3;
             }
+            &-5 {
+                color: $gray-lvl-5;
+            }
         }
     
         &-dark {
@@ -51,6 +70,11 @@ $dark-lvl-4: #565F7E;
     }
 
     & .bg {
+        &-white {
+            &-2 {
+                background: $white-lvl-2;
+            }
+        }
         &-green {
             &-1 {
                 background: $green-lvl-1;
@@ -70,6 +94,9 @@ $dark-lvl-4: #565F7E;
             }
             &-3 {
                 background: $gray-lvl-3;
+            }
+            &-5 {
+                color: $gray-lvl-5;
             }
         }
     
@@ -91,6 +118,15 @@ $dark-lvl-4: #565F7E;
 }
 .dark {
     & .color {
+        &-black {
+            color: $white;
+        }
+        &-white {
+            &-2 {
+                color: $dark-lvl-3;
+            }
+        }
+        
         &-green {
             &-1 {
                 color: $green-lvl-1;
@@ -114,6 +150,9 @@ $dark-lvl-4: #565F7E;
             &-4 {
                 color: $dark-lvl-4;
             }
+            &-5 {
+                color: $gray-lvl-5;
+            }
         }    
         &-dark {
             &-1 {
@@ -128,10 +167,18 @@ $dark-lvl-4: #565F7E;
             &-4 {
                 color: $dark-lvl-4;
             }
+            &-5 {
+                color: $gray-lvl-5;
+            }
         }
     }
 
     & .bg {
+        &-white {
+            &-2 {
+                background: $dark-lvl-3;
+            }
+        }
         &-green {
             &-1 {
                 background: $green-lvl-1;
