@@ -1,0 +1,85 @@
+.switch {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    padding: 0;
+    animation: all 0.3s ease-in-out;
+    -webkit-transition: .4s;
+    transition: .4s;
+    cursor: pointer;
+    & .clouds {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        background: url('../../assets/img/clouds.svg');
+        background-repeat: no-repeat;
+        width: 12px;
+        height: 7px;
+        -webkit-transition: .4s;
+        transition: .4s;
+        &.low {
+            top: 10px;
+            right: 18px;
+        }
+    }
+    &-thumb {
+        position: absolute;
+        display: block;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-top: 1px;
+        margin-left: -2px;
+        width: 34px;
+        height: 34px;
+        left: 0;
+        border-radius: 11px;
+        background: url('../../assets/img/thumb_light.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        -webkit-transition: .4s;
+        transition: .4s;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &.checked {
+        animation: all 0.3s ease-in-out;
+
+        .clouds {
+            left: 10px;
+            -webkit-transition: .4s;
+            transition: .4s;
+
+            &.low {
+                top: 11px;
+                left: 18px;
+            }
+        }
+
+        .switch-thumb {
+            left: 32px;
+            right: -4px;
+            background: url('../../assets/img/thumb_dark.svg');
+            background-size: contain;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+    }
+}
+
+.light {
+    .switch {
+        background: url('../../assets/img/switch-body_light.svg');
+    }
+}
+.dark {
+    .switch {
+        background: url('../../assets/img/switch-body_dark.svg');
+    }
+}

@@ -1,0 +1,12 @@
+.main-container {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100px auto 238px;
+
+    @media (max-width: 475px) {
+        grid-template-rows: 100px auto 141px;
+    }
+}

@@ -21,4 +21,9 @@
     &:disabled {
         cursor: not-allowed;
     }
+
+    @media (max-width: 475px) {
+        height: 56px;
+        width: 56px;
+    }
 }

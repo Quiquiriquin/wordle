@@ -3,15 +3,17 @@ import { Dispatch, ReactComponentElement, SetStateAction, createContext, useStat
 
 type ThemeProviderInterface = {
   theme?: string
-  updateTheme?: Dispatch<SetStateAction<string>>
+  updateTheme: Dispatch<SetStateAction<string>>
 }
 
-const ThemeContext = createContext<ThemeProviderInterface>({})
+const ThemeContext = createContext<ThemeProviderInterface>({
+  updateTheme: () => {},
+})
 
 const { Provider, Consumer } = ThemeContext
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ThemeProvider = ({ children }: { children: ReactComponentElement<any> }) => {
-  const [theme, updateTheme] = useState<string>('dark')
+  const [theme, updateTheme] = useState<string>('light')
   return (
     <Provider
       value={{

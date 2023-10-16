@@ -1,4 +1,4 @@
-@import '../../../assets/styles/variables';
+@import '../../assets/styles/variables';
 
 .button {
     &.keyboard {
@@ -23,6 +23,12 @@
 
         &:active {
             background: $gray-lvl-5;
+        }
+
+        @media (max-width: 475px) {
+            font-size: 0.75rem;
+            width: 24px;
+            height: 31px;
         }
     }
 }

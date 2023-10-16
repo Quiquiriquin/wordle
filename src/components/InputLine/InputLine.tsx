@@ -17,7 +17,7 @@ const InputLine = ({ row, word = '', col, evaluate }: InputLineProps) => {
     }
   }, [col])
   return (
-    <div className='flex gap-4'>
+    <div className='flex gap-2'>
       <SquareInput
         word={word}
         evaluate={evaluate}

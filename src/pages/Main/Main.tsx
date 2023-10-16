@@ -22,9 +22,9 @@ const Main = () => {
     document.body.className = theme || ''
   }, [theme])
   return (
-    <div className={''}>
+    <div className={'main-container'}>
       <Header />
-      <div className={clsx(theme, 'flex flex-col gap-4 items-center')}>
+      <div className={clsx(theme, 'flex flex-col gap-2 items-center justify-center')}>
         {rows.map((row) => (
           <InputLine
             col={0}
@@ -35,14 +35,14 @@ const Main = () => {
             key={`row_${row}`}
           />
         ))}
-        <Keyboard
-          setEvaluateLine={setEvaluateLine}
-          setActiveLine={setActiveLine}
-          setActiveColumn={setActiveColumn}
-          row={activeLine}
-          col={activeColumn}
-        />
       </div>
+      <Keyboard
+        setEvaluateLine={setEvaluateLine}
+        setActiveLine={setActiveLine}
+        setActiveColumn={setActiveColumn}
+        row={activeLine}
+        col={activeColumn}
+      />
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React, { Dispatch, MouseEvent, MouseEventHandler, SetStateAction, useState } from 'react'
 import './_keyboard.scss'
-import Button from '../buttons/Button/Button'
+import Button from '../Button/Button'
 import { KEYBOARD_LINE_1, KEYBOARD_LINE_2, KEYBOARD_LINE_3 } from '../../utils/constants'
 import clsx from 'clsx'
 
