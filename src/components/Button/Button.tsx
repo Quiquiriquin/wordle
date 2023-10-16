@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, useContext, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './_button.scss'
 import clsx from 'clsx'
 import { ThemeContext } from '../../context/ThemeContext'
@@ -8,6 +8,7 @@ type ButtonProps = {
   label?: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onPress?: any
+  type?: 'keycap' | 'common'
 }
 
 const DeleteSVG = () => {
@@ -50,7 +51,7 @@ const DeleteSVG = () => {
   )
 }
 
-const Button = ({ className, label, onPress }: ButtonProps) => {
+const Button = ({ className, label, onPress, type }: ButtonProps) => {
   const [clicked, setClicked] = useState<boolean>(false)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const click = (event: any) => {
@@ -59,6 +60,19 @@ const Button = ({ className, label, onPress }: ButtonProps) => {
     }
     setClicked(true)
   }
+
+  if (type === 'common') {
+    return (
+      <button
+        onClick={click}
+        value={label}
+        className={clsx(['button', 'common', className, clicked && 'clicked', 'color-black'])}
+      >
+        {label === 'DELETE' ? <DeleteSVG /> : label}
+      </button>
+    )
+  }
+
   return (
     <button
       onClick={click}

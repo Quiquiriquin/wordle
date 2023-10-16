@@ -1,4 +1,4 @@
-import React, { Dispatch, MouseEvent, MouseEventHandler, SetStateAction, useState } from 'react'
+import React, { Dispatch, SetStateAction, useState } from 'react'
 import './_keyboard.scss'
 import Button from '../Button/Button'
 import { KEYBOARD_LINE_1, KEYBOARD_LINE_2, KEYBOARD_LINE_3 } from '../../utils/constants'
@@ -8,13 +8,12 @@ const Keyboard = ({
   row,
   col,
   setActiveLine,
-  setActiveColumn,
   setEvaluateLine,
 }: {
   row: number
   col: number
   setActiveLine: Dispatch<SetStateAction<number>>
-  setActiveColumn: Dispatch<SetStateAction<number>>
+  setActiveColumn?: Dispatch<SetStateAction<number>>
   setEvaluateLine: Dispatch<SetStateAction<boolean>>
 }) => {
   const [currentCol, setCurrentCol] = useState(col)

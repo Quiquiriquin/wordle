@@ -6,34 +6,45 @@ type SquareInputProps = {
   expectedLetter: string
   evaluate?: boolean
   word: string
+  fixedValue?: string
+  skipGray?: boolean
 }
-const SquareInput = ({ id, expectedLetter, evaluate = false, word }: SquareInputProps) => {
+const SquareInput = ({
+  id,
+  expectedLetter,
+  evaluate = false,
+  word,
+  fixedValue,
+  skipGray = false,
+}: SquareInputProps) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const inputRef: any = useRef(null)
   const [validation, setValidation] = useState<string>('')
   const verifyLetter = () => {
-    const value = (inputRef?.current?.value || '').toLowerCase()
+    const value = (inputRef?.current?.value || fixedValue || '').toLowerCase()
     if (value) {
       if (value === expectedLetter) {
         setValidation('bg-green-1')
-      }
-      if (value !== expectedLetter && word.includes(value)) {
+      } else if (value !== expectedLetter && word.toLowerCase().includes(value)) {
         setValidation('bg-yellow-1')
+      } else if (!skipGray) {
+        setValidation('bg-gray-2')
       }
     }
   }
 
   useEffect(() => {
-    if (evaluate) {
+    if (evaluate || fixedValue) {
       verifyLetter()
     }
-  }, [evaluate])
+  }, [evaluate, fixedValue])
   return (
     <input
       ref={inputRef}
       id={id}
       readOnly
       className={clsx('square-input', validation, 'color-black')}
+      {...(fixedValue ? { value: fixedValue } : {})}
     ></input>
   )
 }

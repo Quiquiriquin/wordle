@@ -1,14 +1,21 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { ThemeContext } from '../../../context/ThemeContext'
 
-const Statistics = () => {
+const Statistics = ({ onPress }: { onPress: () => void }) => {
   const { theme } = useContext(ThemeContext)
   const [fill, setFill] = useState('#818181')
   useEffect(() => {
     setFill(theme === 'light' ? '#818181' : '#DADCE0')
   }, [])
   return (
-    <svg xmlns='http://www.w3.org/2000/svg' width='36' height='32' viewBox='0 0 36 32' fill='none'>
+    <svg
+      onClick={onPress}
+      xmlns='http://www.w3.org/2000/svg'
+      width='36'
+      height='32'
+      viewBox='0 0 36 32'
+      fill='none'
+    >
       <path
         fillRule='evenodd'
         clipRule='evenodd'

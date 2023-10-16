@@ -31,4 +31,10 @@
             height: 31px;
         }
     }
+    &.common {
+        width: 100%;
+        max-width: 256px;
+        height: 44px;
+        border-radius: 4px;
+    }
 }
