@@ -33,7 +33,6 @@ const Main = () => {
   const resetInputs = () => {
     const allInputs: NodeListOf<HTMLInputElement> = document.querySelectorAll('input')
     allInputs.forEach((input) => {
-      input.value = ''
       input.classList.remove('bg-green-1')
       input.classList.remove('bg-yellow-1')
       input.classList.remove('bg-gray-2')
@@ -82,7 +81,9 @@ const Main = () => {
       <div className={clsx(theme, 'flex flex-col gap-2 items-center justify-center')}>
         {rows.map((row) => (
           <InputLine
+            reset={!!triggerModal}
             col={activeColumn}
+            activeLine={activeLine}
             evaluate={evaluateLine}
             setActiveColumn={setActiveColumn}
             word={word}

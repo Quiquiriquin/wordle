@@ -7,9 +7,11 @@ type InputLineProps = {
   col: number
   setActiveColumn: Dispatch<SetStateAction<number>>
   evaluate: boolean
+  reset: boolean
+  activeLine: number
 }
 
-const InputLine = ({ row, word = '', col, evaluate }: InputLineProps) => {
+const InputLine = ({ row, word = '', col, evaluate, reset, activeLine }: InputLineProps) => {
   const positions = [0, 1, 2, 3, 4]
   useEffect(() => {
     if (col > 4) {
@@ -19,32 +21,37 @@ const InputLine = ({ row, word = '', col, evaluate }: InputLineProps) => {
   return (
     <div className='flex gap-2'>
       <SquareInput
+        reset={reset}
         word={word}
-        evaluate={evaluate}
+        evaluate={evaluate && activeLine - 1 === row}
         expectedLetter={word.charAt(0).toLowerCase()}
         id={`input_${row}_${positions[0]}`}
       />
       <SquareInput
+        reset={reset}
         word={word}
-        evaluate={evaluate}
+        evaluate={evaluate && activeLine - 1 === row}
         expectedLetter={word.charAt(1).toLowerCase()}
         id={`input_${row}_${positions[1]}`}
       />
       <SquareInput
+        reset={reset}
         word={word}
-        evaluate={evaluate}
+        evaluate={evaluate && activeLine - 1 === row}
         expectedLetter={word.charAt(2).toLowerCase()}
         id={`input_${row}_${positions[2]}`}
       />
       <SquareInput
+        reset={reset}
         word={word}
-        evaluate={evaluate}
+        evaluate={evaluate && activeLine - 1 === row}
         expectedLetter={word.charAt(3).toLowerCase()}
         id={`input_${row}_${positions[3]}`}
       />
       <SquareInput
+        reset={reset}
         word={word}
-        evaluate={evaluate}
+        evaluate={evaluate && activeLine - 1 === row}
         expectedLetter={word.charAt(4).toLowerCase()}
         id={`input_${row}_${positions[4]}`}
       />
