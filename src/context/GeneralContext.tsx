@@ -11,6 +11,8 @@ import {
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import catalog from '../utils/catalog.txt'
+import { useCountDown } from '../hooks/useCountDown'
+import { getRandFromWords } from '../pages/Main/Main'
 
 type GeneralProviderInterface = {
   words?: string[]
@@ -18,6 +20,12 @@ type GeneralProviderInterface = {
   setWins: Dispatch<SetStateAction<number>>
   losses?: number
   setLosses?: Dispatch<SetStateAction<number>>
+  baseStart?: number | null
+  setBaseStart?: Dispatch<SetStateAction<number>>
+  word: string
+  setWord: Dispatch<SetStateAction<string>>
+  minutes: number
+  seconds: number
 }
 
 const GeneralContext = createContext<GeneralProviderInterface>({
@@ -26,14 +34,25 @@ const GeneralContext = createContext<GeneralProviderInterface>({
   setWins: () => {},
   losses: 0,
   setLosses: () => {},
+  baseStart: null,
+  setBaseStart: () => {},
+  word: '',
+  setWord: () => {},
+  minutes: 0,
+  seconds: 0,
 })
 
 const { Provider, Consumer } = GeneralContext
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const GeneralProvider = ({ children }: { children: ReactComponentElement<any> }) => {
   const [words, updateWords] = useState<string[]>([])
+  const [word, setWord] = useState<string>('')
+  const [baseStart, setBaseStart] = useState<number>(
+    new Date().getTime() + (Number(localStorage.getItem('time_to_add')) || 302000),
+  )
   const [wins, setWins] = useState<number>(Number(localStorage.getItem('wins')) || 0)
-  const [losses, setLosses] = useState<number>(0)
+  const [losses, setLosses] = useState<number>(Number(localStorage.getItem('losses')) || 0)
+  const [, , minutes, seconds] = useCountDown({ startTime: baseStart })
   const getWords = useCallback(async () => {
     try {
       const textResponse = await fetch(catalog)
@@ -51,6 +70,16 @@ const GeneralProvider = ({ children }: { children: ReactComponentElement<any> })
   }, [])
 
   useEffect(() => {
+    if (minutes + seconds <= -9) {
+      setBaseStart(new Date().getTime() + (Number(localStorage.getItem('time_to_add')) || 302000))
+    }
+  }, [minutes, seconds])
+
+  useEffect(() => {
+    setWord(words[getRandFromWords(words)])
+  }, [baseStart])
+
+  useEffect(() => {
     getWords()
   }, [])
   return (
@@ -61,6 +90,12 @@ const GeneralProvider = ({ children }: { children: ReactComponentElement<any> })
         setWins,
         losses,
         setLosses,
+        setBaseStart,
+        baseStart,
+        word,
+        setWord,
+        minutes,
+        seconds,
       }}
     >
       {children}

@@ -1,23 +1,19 @@
-import React, { Dispatch, SetStateAction, useEffect } from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 import SquareInput from '../inputs/SquareInput/SquareInput'
 
 type InputLineProps = {
   row: number
   word: string
-  col: number
+  col?: number
   setActiveColumn: Dispatch<SetStateAction<number>>
   evaluate: boolean
   reset: boolean
   activeLine: number
 }
 
-const InputLine = ({ row, word = '', col, evaluate, reset, activeLine }: InputLineProps) => {
+const InputLine = ({ row, word = '', evaluate, reset, activeLine }: InputLineProps) => {
   const positions = [0, 1, 2, 3, 4]
-  useEffect(() => {
-    if (col > 4) {
-      console.log('Ya acabamos')
-    }
-  }, [col])
+
   return (
     <div className='flex gap-2'>
       <SquareInput

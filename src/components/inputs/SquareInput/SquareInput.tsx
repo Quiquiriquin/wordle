@@ -24,19 +24,15 @@ const SquareInput = ({
   const [validation, setValidation] = useState<string>('')
   const verifyLetter = () => {
     const value = (inputRef?.current?.value || fixedValue || '').toLowerCase()
-    console.log(value, expectedLetter)
     if (value) {
       if (value === expectedLetter) {
-        console.log('debe ser green')
         setValidation('bg-green-1')
       } else if (
         (value !== expectedLetter || value === expectedLetter) &&
         word.toLowerCase().includes(value)
       ) {
-        console.log('debe ser amarillo')
         setValidation('bg-yellow-1')
       } else if (!skipGray) {
-        console.log('No está')
         setValidation('bg-gray-2')
       }
     }

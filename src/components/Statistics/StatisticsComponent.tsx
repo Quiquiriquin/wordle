@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { GeneralContext } from '../../context/GeneralContext'
+import Countdown from '../Countdown/Countdown'
 
 const StatisticsComponent = () => {
   const { wins, losses } = useContext(GeneralContext)
@@ -21,7 +22,7 @@ const StatisticsComponent = () => {
       </div>
       <div className='modal--next-word flex flex-col items-center'>
         <label className='block'>Siguiente palabra</label>
-        <div>Timer</div>
+        <Countdown />
       </div>
     </>
   )
