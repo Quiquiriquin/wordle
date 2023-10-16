@@ -1,46 +1,27 @@
-# Getting Started with Create React App
+# WORDLE
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Interview excercise. 
 
-## Available Scripts
+## Summary
 
-In the project directory, you can run:
+Wordle challenge you to guess the word before time runs out or before you don't have more chances to guess the word.
+You can play it clonning this repository, installing the dependencies and run it using `npm start`.
+If you prefer, go to this [link](https://main--jovial-babka-dcf4e7.netlify.app/) and play it on mobile and desktop
 
-### `npm start`
+## Technologies
+- React
+- TailwindCSS
+- Typescript
+- SASS
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Key points
+- Hooks
+- Custom Hooks
+- General Context
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Screenshots
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Screenshot 2023-10-16 at 14 23 40](https://github.com/Quiquiriquin/wordle/assets/34761537/ef133f05-590a-49c1-a504-eb6d1aaae44c)
+![Screenshot 2023-10-16 at 14 23 56](https://github.com/Quiquiriquin/wordle/assets/34761537/254d29cf-399e-4312-858f-0c4624302e33)
+![Screenshot 2023-10-16 at 14 24 06](https://github.com/Quiquiriquin/wordle/assets/34761537/0004cddb-b5c0-4f51-afa4-1f39e900b514)
+![Screenshot 2023-10-16 at 14 24 12](https://github.com/Quiquiriquin/wordle/assets/34761537/b3ccfd81-53fc-4cc2-8379-afc430603e6d)
