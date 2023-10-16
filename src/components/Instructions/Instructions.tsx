@@ -4,7 +4,7 @@ import './_instructions.scss'
 
 const Instructions = () => {
   return (
-    <div className='instructions'>
+    <div className='instructions color-black'>
       <div className='instructions--header text-center mb-4'>
         <label className='text-2xl sm:text-3xl font-bold'>Cómo jugar</label>
       </div>

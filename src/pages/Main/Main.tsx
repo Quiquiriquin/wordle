@@ -91,6 +91,10 @@ const Main = () => {
     if (!localStorage.getItem('time_to_add')) {
       localStorage.setItem('time_to_add', '302000')
     }
+    if (!localStorage.getItem('first_time')) {
+      localStorage.setItem('first_time', 'false')
+      setTriggerModal('help')
+    }
   }, [])
 
   return (

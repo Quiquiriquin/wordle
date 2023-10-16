@@ -12,7 +12,7 @@ const Modal = ({ onClose, children }: ModalProps) => {
   return (
     <div className='backdrop'>
       <div className={clsx(['modal', 'bg-white-2'])}>
-        <div onClick={onClose} className='close-icon cursor-pointer'>
+        <div onClick={onClose} className='close-icon cursor-pointer color-black'>
           Cerrar
         </div>
         <div className='modal-container'>
@@ -21,7 +21,7 @@ const Modal = ({ onClose, children }: ModalProps) => {
             onPress={onClose}
             type='common'
             label='Aceptar'
-            className='color-white-2 bg-green-1 text-lg font-bold mt-8 mx-auto'
+            className='color-black-2 bg-green-1 text-lg font-bold mt-8 mx-auto'
           />
         </div>
       </div>

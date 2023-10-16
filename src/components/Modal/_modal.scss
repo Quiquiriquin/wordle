@@ -6,7 +6,17 @@
     z-index: 5;
     top: 0;
     left: 0;
-    background: rgba($color: #fff, $alpha: 0.35);
+}
+
+.light {
+    .backdrop {
+        background: rgba($color: #fff, $alpha: 0.35);
+    }
+}
+.dark {
+    .backdrop {
+        background: rgba($color: #000, $alpha: 0.8);
+    }
 }
 
 .modal {    

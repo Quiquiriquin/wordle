@@ -7,8 +7,13 @@ const StatisticsComponent = () => {
 
   return (
     <>
-      <div className='modal--title font-bold max-[495px]:mb-8 mb-6 text-center'>Estadísticas</div>
-      <div className='flex justify-between mx-auto' style={{ minWidth: '80%', maxWidth: '80%' }}>
+      <div className='modal--title font-bold max-[495px]:mb-8 mb-6 text-center color-black'>
+        Estadísticas
+      </div>
+      <div
+        className='flex justify-between mx-auto color-black'
+        style={{ minWidth: '80%', maxWidth: '80%' }}
+      >
         <div className='modal--score text-center mb-12'>
           <label className='block font-bold text-2xl sm:text-3xl'>
             {(losses || 0) + (wins || 0)}
@@ -20,7 +25,7 @@ const StatisticsComponent = () => {
           <label className='block text-lg sm:text-xl'>Ganadas</label>
         </div>
       </div>
-      <div className='modal--next-word flex flex-col items-center'>
+      <div className='modal--next-word flex flex-col items-center color-black'>
         <label className='block'>Siguiente palabra</label>
         <Countdown />
       </div>
